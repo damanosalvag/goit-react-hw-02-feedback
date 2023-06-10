@@ -4,6 +4,7 @@ import Statistics from "./components/Statistics/Statistics";
 import FeedbackOptions from "./components/FeedbackOptions/FeedbackOptions";
 import Section from "./components/Sections/Sections";
 import Notification from "./components/Notification/Notification";
+import PropTypes from "prop-types";
 
 
 
@@ -61,7 +62,7 @@ class App extends Component {
               neutral={neutral}
               bad={bad}
               total={total}
-              positivePercentage={positivePercentage}
+              positivePercentage={parseInt(positivePercentage)}
             ></Statistics>
           )}
         </Section>
@@ -69,5 +70,11 @@ class App extends Component {
     );
   }
 }
-
+App.propTypes = {
+  good: PropTypes.number,
+  neutral: PropTypes.number,
+  bad: PropTypes.number,
+  positivePercentage: PropTypes.number,
+  total: PropTypes.number,
+};
 export default App;
